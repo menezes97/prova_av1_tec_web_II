@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hospital Tudo Certo</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+  		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  	
+  	<script type="text/javascript">
+ 		$(function() {
+ 			
+  			var contadorid = 0;
+  			$( ".verde" ).hide();
+  			$( ".amarelo" ).hide();
+  			$( ".vermelho" ).hide();
+  			$( ".cinza" ).hide();
+  			$( "#adicionarvermelho" ).hide();
+  			$( "#adicionaramarelo" ).hide();
+  			$( "#adicionarverde" ).hide();
+
+
+  		  	$('#adicionarcinza').click (function() {
+		  		var pessoa = $('#entrada').val();
+		  		var a = '<div id= p'+ contadorid +'>' + pessoa + '</div>';
+		  		$('#pessoa_cinza').append(a);
+		  		$('#p'+contadorid).draggable();
+		  		$('#entrada').val('');
+		  		contadorid++;
+		  		$( "div" ).slideDown();
+		  		$("button").slideDown();
+	  		});
+
+  		  	$('#adicionarvermelho').click (function() {
+		  		var pessoa = $('#pessoa_cinza').html();
+		  		var a = '<div id= p'+ contadorid +'>' + pessoa + '</div>';
+		  		$('#pessoa_vermelha').append(a);
+		  		$('#p'+contadorid).draggable();
+		  		$("#pessoa_cinza").empty();
+		  		contadorid++;
+  			});
+
+  		  	$('#adicionaramarelo').click (function() {
+	  			var pessoa = $('#pessoa_cinza').html();
+	  			var a = '<div id= p'+ contadorid +'>' + pessoa + '</div>';
+	  			$('#pessoa_amarela').append(a);
+	  			$('#p'+contadorid).draggable();
+	  			$("#pessoa_cinza").empty();
+	  			contadorid++;
+  			});
+
+  		  		$('#adicionarverde').click (function() {
+	  			var pessoa = $('#pessoa_cinza').html();
+	  			var a = '<div id= p'+ contadorid +'>' + pessoa + '</div>';
+	  			$('#pessoa_verde').append(a);
+	  			$('#p'+contadorid).draggable();
+	  			$("#pessoa_cinza").empty();
+	  			contadorid++;
+  			});
+  		  		
+  		});
+
+  		
+
+  	</script>
+	
+  	
+	<style type="text/css">
+		
+
+		input {
+			margin-top:10px;
+			margin-bottom: 20px;
+			margin-right: 20px;
+			margin-left: 20px;
+			padding: 10px;
+			border: 1px solid gray; 
+		}
+
+		
+		.cinza {
+			width: 200px;
+			border: 3px solid gray;
+			padding: 50px;
+			margin: 20px 300px 20px 20px;
+			height: 300px;
+			float: left;
+
+			
+		}
+		.verde {
+			width: 200px;
+			border: 3px solid green;
+			padding: 50px;
+			margin: 20px;
+			height: 300px;
+			float: left;
+			
+		}
+
+		.amarelo {
+			width: 200px;
+			border: 3px solid yellow;
+			padding: 50px;
+			margin: 20px;
+			height: 300px;
+			float: left;
+		
+			
+		}
+
+		.vermelho {
+			width: 200px;
+			border: 3px solid red;
+			padding: 50px;
+			margin: 20px;
+			height: 300px;
+			float: left;
+			
+		}
+		
+	</style>
+
+	
+</head>
+<body>
+	<div>
+		<h4 style = "margin: 20px">Hospital Tudo Certo</h4>
+		
+		<input	type="text" 
+				id="entrada" 
+				placeholder="Digite o nome do paciente" 
+				style="width: 220px">
+
+		<button type="button" id="adicionarcinza" class="btn btn-dark">Adicionar</button>
+	</div>
+
+	<div class="cinza">
+		<div id="pessoa_cinza" style="border: 0px solid green;"></div>
+	</div>
+
+	<div class="vermelho">
+		<div id="pessoa_vermelha"></div>
+	</div>
+
+	<div class="verde">
+		<div id="pessoa_verde"></div>
+	</div>
+
+	<div class="amarelo">
+		<div id="pessoa_amarela"></div>
+	</div>
+
+	
+	<div style="border:0px solid; clear: both;">
+		
+		<button type="button"
+				id="adicionarvermelho"
+				class="btn btn-outline-danger"
+				style="margin:15px; height: 50px;">Ala Vermelha</button>
+		
+		<button id="adicionaramarelo"
+				class="btn btn-outline-warning"
+				type="button" 
+				style="margin:15px; height: 50px;">Ala Amarela</button>
+		
+		<button id="adicionarverde" 
+				class="btn btn-outline-success" 
+				type="button" 
+				style="margin:15px; height: 50px;">Ala Verde</button>
+
+	</div>
+	
+
+</body>
+</html>
